@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100vw;
+    min-height: 100vh;
+  }
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Golden theme custom styles */
+:root {
+  --golden-light: #FFD700;
+  --golden-medium: #FFA500;
+  --golden-dark: #FF8C00;
+  --golden-shadow: rgba(255, 215, 0, 0.3);
+}
+
+/* Custom animations for celebrations */
+@keyframes bounce-celebration {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    text-shadow: 0 0 10px var(--golden-shadow);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--golden-light), 0 0 30px var(--golden-light);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Apply animations */
+.bounce-celebration {
+  animation: bounce-celebration 2s infinite;
+}
+
+.glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Ensure buttons are touch-friendly on mobile */
+@media (max-width: 768px) {
+  button {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 215, 0, 0.6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 215, 0, 0.8);
+}
+
+/* Progress bar custom styles */
+.progress-bar {
+  background: linear-gradient(90deg, var(--golden-light), var(--golden-medium));
+  border-radius: 9999px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Button hover effects */
+.btn-golden {
+  background: linear-gradient(45deg, var(--golden-medium), var(--golden-light));
+  transition: all 0.3s ease;
+}
+
+.btn-golden:hover {
+  background: linear-gradient(45deg, var(--golden-light), var(--golden-dark));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--golden-shadow);
+}
+
+/* Backdrop blur for better readability */
+.backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+}
+
+/* Text shadow for better visibility */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure content is accessible on small screens */
+@media (max-width: 640px) {
+  .text-4xl {
+    font-size: 2rem;
+  }
+  
+  .text-3xl {
+    font-size: 1.75rem;
+  }
+  
+  .p-8 {
+    padding: 1.5rem;
+  }
+  
+  .gap-6 {
+    gap: 1rem;
+  }
+}
+
+/* Animation for celebration overlay */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  animation: confetti-fall 3s linear forwards;
+}
